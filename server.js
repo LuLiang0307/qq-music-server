@@ -38,7 +38,7 @@ app.get('/', async(req, res) => {
 //     }
 
 // })
-app.get('/rank', async(req, res) => {
+app.get('/rank', module.exports = async(req, res) => {
     const url = `https://u.y.qq.com/cgi-bin/musicu.fcg?_=${+new Date()}&data={"comm":{"g_tk":1775699468,"uin":2313970630,"format":"json","inCharset":"utf-8","outCharset":"utf-8","notice":0,"platform":"h5","needNewCode":1,"ct":23,"cv":0},"topList":{"module":"musicToplist.ToplistInfoServer","method":"GetAll","param":{}}}`
     try {
         res.json(await request({
