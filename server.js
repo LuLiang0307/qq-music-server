@@ -11,7 +11,7 @@ const HEADERS = {
     'referer': "https://i.y.qq.com/",
 }
 app.use(cors())
-app.get('/', async(req, res) => {
+export default app.get('/', async(req, res) => {
     const url = `https://u.y.qq.com/cgi-bin/musicu.fcg?_=${+new Date()}&data={"comm":{"g_tk":1775699468,"uin":2313970630,"format":"json","inCharset":"utf-8","outCharset":"utf-8","notice":0,"platform":"h5","needNewCode":1},"playSongAd":{"module":"SongPlay.SongPlayBaseServer","method":"GetPlaySongAd","param":{"channel":3,"app_user":1,"platform":2,"forbid":0,"share_musicid":"","encodetype":1,"adtype":8}}}`
     try {
         res.json(await request({
