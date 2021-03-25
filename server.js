@@ -65,17 +65,17 @@ app.get('/search', async(req, res) => {
     }
 })
 app.get('/lyrics', async(req, res) => {
-    let { id, type = 0 } = req.query
-    const url = `https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric.fcg?g_tk=1775699468&uin=2313970630&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&g_tk_new_20200303=1775699468&nobase64=1&musicid=${id}&songtype=${type}&_=${+ new Date()}`
-    try {
-        let text = (await request({
-            url: url,
-            json: true,
-            headers: HEADERS
-        })).replace(/MusicJsonCallback\((.*)\)/, '$1')
-        res.json(JSON.parse(text))
-    } catch (e) {
-        res.json({ error: e.massage })
-    }
-})
-app.listen(4000)
+        let { id, type = 0 } = req.query
+        const url = `https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric.fcg?g_tk=1775699468&uin=2313970630&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&g_tk_new_20200303=1775699468&nobase64=1&musicid=${id}&songtype=${type}&_=${+ new Date()}`
+        try {
+            let text = (await request({
+                url: url,
+                json: true,
+                headers: HEADERS
+            })).replace(/MusicJsonCallback\((.*)\)/, '$1')
+            res.json(JSON.parse(text))
+        } catch (e) {
+            res.json({ error: e.massage })
+        }
+    })
+    // app.listen(4000)
