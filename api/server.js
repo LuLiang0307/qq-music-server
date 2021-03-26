@@ -79,7 +79,7 @@ app.get('/lyrics', async(req, res) => {
         }
     })
     // app.listen(4000)
-    // module.exports = app
+module.exports = app
     // app.listen = module.exports = function() {
     //     var server = http.createServer(this)
     //     return server.listen.apply(server, arguments)
